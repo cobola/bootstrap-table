@@ -25,6 +25,10 @@
     border-right: 2px solid transparent;
 }
 
+.bootstrap-table .table.table-no-bordered > tbody > tr > td:last-child {
+    border-right: none;
+}
+
 .fixed-table-container {
     position: relative;
     clear: both;
@@ -192,7 +196,7 @@
     line-height: 1.428571429;
 }
 
-.fixed-table-toolbar .bars,
+.fixed-table-toolbar .bs-bars,
 .fixed-table-toolbar .search,
 .fixed-table-toolbar .columns {
     position: relative;

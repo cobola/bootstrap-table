@@ -286,7 +286,7 @@
     };
 
     BootstrapTable.DEFAULTS = {
-        classes: 'table table-hover',
+        classes: 'am-table am-table-hover',
         locale: undefined,
         height: undefined,
         undefinedText: '-',
@@ -1047,7 +1047,7 @@
         }
 
         // showColumns, showToggle, showRefresh
-        html = [sprintf('<div class="columns columns-%s btn-group pull-%s">',
+        html = [sprintf('<div class="columns columns-%s am-btn-group pull-%s">',
             this.options.buttonsAlign, this.options.buttonsAlign)];
 
         if (typeof this.options.icons === 'string') {
@@ -1055,9 +1055,9 @@
         }
 
         if (this.options.showPaginationSwitch) {
-            html.push(sprintf('<button class="btn' +
-                    sprintf(' btn-%s', this.options.buttonsClass) +
-                    sprintf(' btn-%s', this.options.iconSize) +
+            html.push(sprintf('<button class="am-btn' +
+                    sprintf(' am-btn-%s', this.options.buttonsClass) +
+                    sprintf(' am-btn-%s', this.options.iconSize) +
                     '" type="button" name="paginationSwitch" title="%s">',
                     this.options.formatPaginationSwitch()),
                 sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.paginationSwitchDown),
@@ -1065,9 +1065,9 @@
         }
 
         if (this.options.showRefresh) {
-            html.push(sprintf('<button class="btn' +
-                    sprintf(' btn-%s', this.options.buttonsClass) +
-                    sprintf(' btn-%s', this.options.iconSize) +
+            html.push(sprintf('<button class="am-btn' +
+                    sprintf(' am-btn-%s', this.options.buttonsClass) +
+                    sprintf(' am-btn-%s', this.options.iconSize) +
                     '" type="button" name="refresh" title="%s">',
                     this.options.formatRefresh()),
                 sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.refresh),
@@ -1075,9 +1075,9 @@
         }
 
         if (this.options.showToggle) {
-            html.push(sprintf('<button class="btn' +
-                    sprintf(' btn-%s', this.options.buttonsClass) +
-                    sprintf(' btn-%s', this.options.iconSize) +
+            html.push(sprintf('<button class="am-btn' +
+                    sprintf(' am-btn-%s', this.options.buttonsClass) +
+                    sprintf(' am-btn-%s', this.options.iconSize) +
                     '" type="button" name="toggle" title="%s">',
                     this.options.formatToggle()),
                 sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.toggle),
@@ -1085,16 +1085,16 @@
         }
 
         if (this.options.showColumns) {
-            html.push(sprintf('<div class="keep-open btn-group" title="%s">',
+            html.push(sprintf('<div class="keep-open am-btn-group am-dropdown " data-am-dropdown  title="%s">',
                     this.options.formatColumns()),
-                '<button type="button" class="btn' +
-                sprintf(' btn-%s', this.options.buttonsClass) +
-                sprintf(' btn-%s', this.options.iconSize) +
-                ' dropdown-toggle" data-toggle="dropdown">',
+                '<button type="button" class="am-btn' +
+                sprintf(' am-btn-%s', this.options.buttonsClass) +
+                sprintf(' am-btn-%s', this.options.iconSize) +
+                ' am-dropdown-toggle" data-am-dropdown-toggle>',
                 sprintf('<i class="%s %s"></i>', this.options.iconsPrefix, this.options.icons.columns),
-                ' <span class="caret"></span>',
+                ' <span class="am-icon-caret-down"></span>',
                 '</button>',
-                '<ul class="dropdown-menu" role="menu">');
+                '<ul class="am-dropdown-content" role="menu">');
 
             $.each(this.columns, function (i, column) {
                 if (column.radio || column.checkbox) {
@@ -1350,19 +1350,19 @@
             html.push('<span class="page-list">');
 
             var pageNumber = [
-                    sprintf('<span class="btn-group %s">',
+                    sprintf('<span class="am-btn-group %s">',
                         this.options.paginationVAlign === 'top' || this.options.paginationVAlign === 'both' ?
                             'dropdown' : 'dropup'),
-                    '<button type="button" class="btn' +
-                    sprintf(' btn-%s', this.options.buttonsClass) +
-                    sprintf(' btn-%s', this.options.iconSize) +
+                    '<button type="button" class="am-btn' +
+                    sprintf(' am-btn-%s', this.options.buttonsClass) +
+                    sprintf(' am-btn-%s', this.options.iconSize) +
                     ' dropdown-toggle" data-toggle="dropdown">',
                     '<span class="page-size">',
                     $allSelected ? this.options.formatAllRows() : this.options.pageSize,
                     '</span>',
                     ' <span class="caret"></span>',
                     '</button>',
-                    '<ul class="dropdown-menu" role="menu">'
+                    '<ul class="am-dropdown" role="menu" data-am-dropdown>'
                 ];
 
             if (typeof this.options.pageList === 'string') {
@@ -1393,8 +1393,8 @@
             html.push('</span>');
 
             html.push('</div>',
-                '<div class="pull-' + this.options.paginationHAlign + ' pagination">',
-                '<ul class="pagination' + sprintf(' pagination-%s', this.options.iconSize) + '">',
+                '<div class="pull-' + this.options.paginationHAlign + ' am-pagination">',
+                '<ul class="am-pagination' + sprintf(' pagination-%s', this.options.iconSize) + '">',
                 '<li class="page-pre"><a href="javascript:void(0)">' + this.options.paginationPreText + '</a></li>');
 
             if (this.totalPages < 5) {

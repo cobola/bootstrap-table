@@ -69,14 +69,24 @@
                 $.each(editableOptions, function (key, value) {
                     editableDataMarkup.push(' ' + key + '="' + value + '"');
                 });
+                
+                var _dont_edit_formatter = false;
+                if (column.editable.hasOwnProperty('noeditFormatter')) {
+                    _dont_edit_formatter = column.editable.noeditFormatter(value, row, index);
+                }
+  
+                if (_dont_edit_formatter === false) {
+                    return ['<a href="javascript:void(0)"',
+                        ' data-name="' + column.field + '"',
+                        ' data-pk="' + row[that.options.idField] + '"',
+                        ' data-value="' + result + '"',
+                        editableDataMarkup.join(''),
+                        '>' + '</a>'
+                    ].join('');
+                } else {
+                    return _dont_edit_formatter;
+                }
 
-                return ['<a href="javascript:void(0)"',
-                    ' data-name="' + column.field + '"',
-                    ' data-pk="' + row[that.options.idField] + '"',
-                    ' data-value="' + result + '"',
-                    editableDataMarkup.join(''),
-                    '>' + '</a>'
-                ].join('');
             };
         });
     };
@@ -104,6 +114,7 @@
                     $(this).data('value', params.submitValue);
                     row[column.field] = params.submitValue;
                     that.trigger('editable-save', column.field, row, oldValue, $(this));
+                    that.resetFooter();
                 });
             that.$body.find('a[data-name="' + column.field + '"]').editable(column.editable)
                 .off('shown').on('shown', function (e, editable) {
