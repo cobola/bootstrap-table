@@ -1,4 +1,4 @@
-# [Bootstrap Table](http://bootstrap-table.wenzhixin.net.cn)
+# [Bootstrap Table](http://bootstrap-table.wenzhixin.net.cn) for amazeui
 
 [![Build Status](https://travis-ci.org/wenzhixin/bootstrap-table.svg)](https://travis-ci.org/wenzhixin/bootstrap-table) 
 [![GitHub version](https://badge.fury.io/gh/wenzhixin%2Fbootstrap-table.svg)](http://badge.fury.io/gh/wenzhixin%2Fbootstrap-table)
